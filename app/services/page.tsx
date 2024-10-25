@@ -107,11 +107,11 @@ const TabComponent: React.FC = () => {
     const renderTabContent = () => {
         switch (tabsData.find(tab => tab.id === activeTab)?.content) {
             case 'MockInterview':
-                return <MockInterview />;
+                return <MockInterview experience={selectedValues} skills={selectedSkills} pricing={sliderValue} activeTab={activeTab} />;
             case 'CareerAdvise':
-                return <CareerAdvise />;
+                return <CareerAdvise experience={selectedValues} skills={selectedSkills} pricing={sliderValue} activeTab={activeTab} />;
             case 'ProjectAdvise':
-                return <ProjectAdvise />;
+                return <ProjectAdvise experience={selectedValues} skills={selectedSkills} pricing={sliderValue} activeTab={activeTab} />;
             default:
                 return null;
         }

@@ -22,7 +22,7 @@ interface Mentor {
 
 const mentors: Mentor[] = [
     {
-        img: "/AnnaHuynh.png",
+        img: "/MockInterview/AnnaHuynh.png",
         name: "Anna Huỳnh",
         career: "HR executive",
         quote: "Tôi là Anna Huỳnh, đảm nhận vị trí HR Executive tại Công ty TNHH Daiko với 5 năm kinh nghiệm. Tôi đã đồng hành cùng nhiều ứng viên, đặc biệt là các bạn trẻ có đam mê với lĩnh vực Digital Marketing và Content Creation...",
@@ -30,7 +30,7 @@ const mentors: Mentor[] = [
         booking: "/services/book/mock/1"
     },
     {
-        img: "/MinhMan.png",
+        img: "/CareerAdvise/MinhMan.png",
         name: "Minh Mẫn",
         career: "Senior Marketing Manager",
         quote: "Tôi là Minh Mẫn, là một Senior Marketing Manager với hơn 7 năm kinh nghiệm làm việc tại các công ty đa quốc gia và doanh nghiệp khởi nghiệp. Nổi bật với sự sáng tạo trong tư duy chiến lược, khả năng lãnh đạo và chuyên môn sâu rộng về Digital Marketing...",
@@ -38,7 +38,7 @@ const mentors: Mentor[] = [
         booking: "/services/book/career/1"
     },
     {
-        img: "/DavidNguyen.png",
+        img: "/ProjectAdvise/DavidNguyen.png",
         name: "David Nguyễn",
         career: "Brand Manager",
         quote: "Với hơn 10 năm kinh nghiệm dày dạn trong lĩnh vực quản lý thương hiệu và đồng hành cùng nhiều startup thành công. Tôi đã có cơ hội làm việc với các thương hiệu lớn nhỏ, từ giai đoạn xây dựng thương hiệu ban đầu cho đến khi trở thành những cái tên được nhiều người biết đến...",

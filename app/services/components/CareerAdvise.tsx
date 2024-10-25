@@ -73,7 +73,7 @@ export default function CareerAdvise({ experience, skills, pricing, activeTab }:
                                     </div>
                                     <div className="card-actions justify-end">
                                         <Link
-                                            href={`/services/mock/${card.id}?tab=${activeTab}`}
+                                            href={`/services/career-${card.id}?tab=${activeTab}`}
                                             className="py-2 px-4 bg-customBlue text-background rounded-full text-sm font-bold">
                                             Chi tiết
                                         </Link>

@@ -66,7 +66,6 @@ const TabComponent: React.FC = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        router.push('?tab=1');
     }, []);
 
     useEffect(() => {

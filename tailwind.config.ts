@@ -9,8 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        customBlue: '#1C3879',     // Màu chính
+        secondary: '#607EAA',   // Màu phụ
+        background: '#FBF7EE',  // Màu nền
+        highlight: '#F9F5EB',   // Màu nhấn
       },
     },
   },

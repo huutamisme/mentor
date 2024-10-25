@@ -1,6 +1,8 @@
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Link from 'next/link';
+import ChatBubble from './components/ChatBubble';
+import Banner from './components/Banner';
+import HighlightMentor from './components/HighlightMentor';
 
 const steps: Array<string> = [
   "Chọn dịch vụ <br /> mình cần",
@@ -12,22 +14,13 @@ const Home: React.FC = () => {
   return (
     <>
       <div className="relative">
-        <div className="flex flex-col bg-customBlue justify-center items-center p-4 gap-4">
-          <div className="text-white text-6xl font-bold">
-            Nơi người mới được kết nối trực tiếp với Mentor
-          </div>
-          <Link
-            href="/services"
-            className="px-4 py-2 bg-white text-customBlue rounded-full text-2xl font-bold"
-          >
-            Tìm hiểu ngay
-          </Link>
-        </div>
-        <video className="w-full" loop autoPlay muted>
+        <Banner margin={10} />
+        <video className="w-full h-min-screen" loop autoPlay muted>
           <source src="/video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-
+        <HighlightMentor margin={10} />
+        <ChatBubble />
         <div className="bg-customBlue py-20">
           <p className="text-5xl md:text-7xl text-center text-white text-shadow-custom mb-10">BƯỚC THỰC HIỆN</p>
           <div className="grid grid-cols-1 space-y-4 md:grid-cols-3 place-items-center">

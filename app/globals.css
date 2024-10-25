@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #FBF7EE;
   --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #FBF7EE;
     --foreground: #ededed;
   }
 }
@@ -18,4 +18,31 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.slick-dots {
+  background: #1C3879;
+}
+
+.bg-gradient-custom {
+  background: linear-gradient(90deg, #1B397A, #3867F0);
+}
+
+.border-gradient-custom {
+  border-color: linear-gradient(90deg, #1B397A, #3867F0);
+}
+
+.glow-text {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.8),
+    0 0 30px rgba(255, 255, 255, 0.8),
+    0 0 40px #1c3879,
+    0 0 70px #1c3879,
+    0 0 80px #1c3879,
+    0 0 100px #1c3879,
+    0 0 150px #1c3879;
+}
+
+.text-shadow-custom {
+  text-shadow: 1px 1px 8px rgba(255, 255, 255, 1);
 }

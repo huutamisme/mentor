@@ -50,7 +50,7 @@ const mentors: Mentor[] = [
 
 const HighlightMentor: React.FC<BannerProps> = ({ margin }) => {
     const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         draggable: true,
         speed: 500,

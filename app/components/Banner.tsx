@@ -10,6 +10,12 @@ interface BannerProps {
     margin: number
 }
 
+interface Banner {
+    title: string,
+    line1: string,
+    line2: string
+}
+
 const Banner: React.FC<BannerProps> = ({ margin }) => {
     const settings = {
         dots: true,
@@ -24,7 +30,7 @@ const Banner: React.FC<BannerProps> = ({ margin }) => {
         prevArrow: <PrevArrow margin={margin} />,
     };
 
-    const banners = [
+    const banners: Banner[] = [
         {
             title: "PHỎNG VẤN GIẢ ĐỊNH",
             line1: "Tham gia phỏng vấn mô phỏng 1-1 với người có chuyên môn",

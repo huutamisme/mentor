@@ -73,11 +73,11 @@ export default function MockInterview({ experience, skills, pricing, activeTab }
                                     </div>
                                     <div className="card-actions justify-end">
                                         <Link
-                                            href={`/services/mock/${card.id}?tab=${activeTab}`}
+                                            href={`/services/mock-${card.id}?tab=${activeTab}`}
                                             className="py-2 px-4 bg-customBlue text-background rounded-full text-sm font-bold">
                                             Chi tiết
                                         </Link>
-                                        <Link href={`/services/book/mock/${card.id}?tab=${activeTab}`} className="py-2 px-4 bg-customBlue text-background rounded-full text-sm font-bold">
+                                        <Link href={`/services/book/${card.id}?tab=${activeTab}`} className="py-2 px-4 bg-customBlue text-background rounded-full text-sm font-bold">
                                             Đặt lịch hẹn ngay
                                         </Link>
                                     </div>

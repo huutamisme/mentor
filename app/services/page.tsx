@@ -143,8 +143,8 @@ const TabComponent: React.FC = () => {
                 </div>
             </div>
 
-            <div className="p-8 flex flex-col md:flex-row bg-background text-customBlue">
-                <div className="w-full md:w-1/4">
+            <div className="p-8 flex flex-col lg:flex-row bg-background text-customBlue">
+                <div className="w-full lg:w-1/4">
                     <div className="rounded-3xl p-2 bg-white shadow-lg">
                         <h2 className="text-xl font-bold mb-4">Kinh nghiệm</h2>
                         <div className="grid grid-cols-2 gap-2">
@@ -168,7 +168,7 @@ const TabComponent: React.FC = () => {
                         <h2 className="text-xl font-bold mb-4">Kỹ năng</h2>
                         <div className="grid grid-cols-2 gap-2">
                             {skillsOptions.map(option => (
-                                <div key={option.id} className="flex items-center mb-2">
+                                <div key={option.id} className="flex items-center mb-2 text-xs lg:text-lg">
                                     <input
                                         type="checkbox"
                                         id={`skills-${option.id}`}
@@ -200,7 +200,7 @@ const TabComponent: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="w-full md:w-3/4 flex justify-center mt-4 md:mt-0">
+                <div className="w-full lg:w-3/4 flex justify-center mt-4 lg:mt-0">
                     {renderTabContent()}
                 </div>
             </div>

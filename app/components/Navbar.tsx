@@ -37,16 +37,18 @@ const Navbar: React.FC = () => {
     return (
         <nav className="w-full bg-background shadow-lg">
             <div className="container mx-auto px-6 py-4 flex justify-between items-center bg-background text-customBlue">
-                <div className="text-2xl md:text-4xl font-bold">MENTOR</div>
+                <div className="text-2xl md:text-3xl lg:text-4xl font-bold">MENTOR</div>
 
                 {/* Desktop menu */}
-                <ul className="font-semibold hidden lg:flex space-x-6">
+                <ul className="font-semibold hidden lg:flex xl:space-x-6 space-x-2">
                     {navItem.map((item, index) => (
-                        <li key={index}>
+                        <li key={index}
+
+                        >
                             <Link
                                 href={item.href}
                                 passHref
-                                className={`btn btn-ghost text-2xl ${pathName === item.href ? 'underline' : ''}`}
+                                className={`btn btn-ghost text-md xl:text-2xl ${pathName === item.href ? 'underline' : ''}`}
                             >
                                 {item.name}
                             </Link>
@@ -55,7 +57,7 @@ const Navbar: React.FC = () => {
                 </ul>
 
                 {/* Search input */}
-                <div className="relative hidden md:block">
+                <div className="relative">
                     <input
                         type="text"
                         placeholder="Tìm kiếm"

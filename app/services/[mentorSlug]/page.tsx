@@ -42,9 +42,6 @@ const MentorDetailPage: React.FC = () => {
     const [type, idString] = mentorSlug.split('-');
     const id = parseInt(idString, 10);
 
-    console.log(type);
-    console.log(id);
-
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -103,7 +100,7 @@ const MentorDetailPage: React.FC = () => {
             <div className="w-full lg:w-1/6 flex flex-col items-center justify-start p-5">
                 <div className="avatar">
                     <div className="w-30 rounded-full">
-                        <Image src={mentor.image} alt={mentor.name} width={300} height={300} />
+                        <Image src={mentor.image} alt={mentor.name} width={700} height={700} />
                     </div>
                 </div>
                 <h1 className="text-4xl text-customBlue font-semibold break-words text-center">{mentor.name}</h1>

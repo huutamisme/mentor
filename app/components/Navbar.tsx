@@ -48,7 +48,7 @@ const Navbar: React.FC = () => {
                             <Link
                                 href={item.href}
                                 passHref
-                                className={`btn btn-ghost text-md xl:text-2xl ${pathName === item.href ? 'underline' : ''}`}
+                                className={`btn btn-ghost text-md xl:text-2xl ${pathName === item.href || (item.href === '/services' && pathName.startsWith('/services/')) ? 'underline' : ''}`}
                             >
                                 {item.name}
                             </Link>
@@ -112,7 +112,7 @@ const Navbar: React.FC = () => {
                                 <Link
                                     href={item.href}
                                     passHref
-                                    className={`btn btn-ghost text-2xl ${pathName === item.href ? 'underline' : ''}`}
+                                    className={`btn btn-ghost text-2xl ${pathName === item.href || (item.href === '/services' && pathName.startsWith('/services/')) ? 'underline' : ''}`}
                                     onClick={handleLinkClick}
                                 >
                                     {item.name}

@@ -1,10 +1,7 @@
 "use client";
 import React, { useState, useRef, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import MockInterview from "./components/MockInterview";
-import CareerAdvise from "./components/CareerAdvise";
-import ProjectAdvise from "./components/ProjectAdvise";
-
+import ServiceField from "./components/ServiceField";
 interface Tab {
     id: number;
     title: string;
@@ -104,16 +101,7 @@ const TabComponent: React.FC = () => {
     };
 
     const renderTabContent = () => {
-        switch (tabsData.find(tab => tab.id === activeTab)?.content) {
-            case 'MockInterview':
-                return <MockInterview experience={selectedValues} skills={selectedSkills} pricing={sliderValue} activeTab={activeTab} />;
-            case 'CareerAdvise':
-                return <CareerAdvise experience={selectedValues} skills={selectedSkills} pricing={sliderValue} activeTab={activeTab} />;
-            case 'ProjectAdvise':
-                return <ProjectAdvise experience={selectedValues} skills={selectedSkills} pricing={sliderValue} activeTab={activeTab} />;
-            default:
-                return null;
-        }
+        return <ServiceField experience={selectedValues} skills={selectedSkills} pricing={sliderValue} activeTab={activeTab} />;
     };
 
     return (

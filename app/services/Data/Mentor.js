@@ -1,4 +1,4 @@
-export const MockInterviewData = [
+export const MentorData = [
     {
         id: 1,
         name: "Anna Huỳnh",

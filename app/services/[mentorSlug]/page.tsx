@@ -1,11 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
-import { MockInterviewData } from "../Data/MockInterview";
-import { CareerAdviseData } from "../Data/CareerAdvise";
-import { ProjectAdviseData } from "../Data/ProjectAdvise";
+import { MentorData } from "../Data/Mentor";
 import { FaUser } from "react-icons/fa";
 import Link from "next/link";
-import { useParams } from 'next/navigation';
+import { useParams, useSearchParams } from 'next/navigation';
 import Image from "next/image";
 
 // Định nghĩa kiểu cho đánh giá
@@ -25,6 +23,7 @@ interface Mentor {
     career: string;
     pricing: number;
     about: string;
+    field: string;
     badges: string[];
     period: string[];
     reviews: Review[];
@@ -34,13 +33,12 @@ interface Mentor {
 // Component DetailMentorPage
 const MentorDetailPage: React.FC = () => {
     const params = useParams(); // Sử dụng useParams để lấy params
-    const mentorSlug = params.mentorSlug as string; // Chuyển đổi sang string
+    const searchParams = useSearchParams(); // Sử dụng search params để lấy được biến trong query
+    const id = parseInt(params.mentorSlug as string, 10);
+    const activeTab = parseInt(searchParams.get('tab') || '0', 10);
 
     const [filteredReview, setFilteredReview] = useState<Review[]>([]);
     const [isNewestActive, setIsNewestActive] = useState(true);
-
-    const [type, idString] = mentorSlug.split('-');
-    const id = parseInt(idString, 10);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -54,16 +52,8 @@ const MentorDetailPage: React.FC = () => {
     };
 
 
-    let dataSource: Mentor[];
-    if (type === 'mock') {
-        dataSource = MockInterviewData as Mentor[];
-    } else if (type === 'career') {
-        dataSource = CareerAdviseData;
-    } else if (type === 'project') {
-        dataSource = ProjectAdviseData as Mentor[];
-    } else {
-        return <h1 className="text-5xl">Invalid type!</h1>;
-    }
+    const dataSource: Mentor[] = MentorData as Mentor[];
+
 
     const mentor = dataSource.find((mentor) => mentor.id === id);
 
@@ -107,7 +97,7 @@ const MentorDetailPage: React.FC = () => {
                 <p className="text-3xl text-customBlue italic break-words text-center mb-2">{mentor.career}</p>
                 <div className="flex flex-col bg-secondary rounded-3xl p-3 space-y-2 items-center">
                     <p className="text-white font-semibold">{mentor.pricing.toLocaleString('vi-vn')}/giờ</p>
-                    <Link href={`/services/book/${type}/${id}`} className="rounded-full bg-white text-customBlue font-semibold px-3">Book Now</Link>
+                    <Link href={`/services/book/${id}?tab=${activeTab}`} className="rounded-full bg-white text-customBlue font-semibold px-3">Book Now</Link>
                 </div>
             </div>
             <div className="w-full lg:w-5/6 bg-background py-5 px-5 lg:px-20 text-customBlue">

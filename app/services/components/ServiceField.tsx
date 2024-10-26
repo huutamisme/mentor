@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { MockInterviewData } from '../Data/MockInterview';
+import { MentorData } from '../Data/Mentor';
 import Image from 'next/image';
 
-interface MockInterviewProps {
+interface ServiceFieldProps {
     experience: string[];
     skills: string[];
     pricing: number;
@@ -20,14 +20,22 @@ interface CardData {
     badges: string[];
 }
 
-const MockInterview: React.FC<MockInterviewProps> = ({ experience, skills, pricing, activeTab }) => {
+const ServiceField: React.FC<ServiceFieldProps> = ({ experience, skills, pricing, activeTab }) => {
+
+    const fieldMapping = {
+        1: "mock",
+        2: "career",
+        3: "project",
+    } as const; // object cố định không đổi
+
     // Lọc dữ liệu dựa trên các props
-    const filteredCards = MockInterviewData.filter((card: CardData) => {
+    const filteredCards = MentorData.filter((card: CardData) => {
+        const isActiveTabMatch = card.field === fieldMapping[activeTab as keyof typeof fieldMapping]; // keyof đảm bảo các giá trị phải là key của fieldMapping
         const hasExperience = experience.length > 0 ? experience.some(exp => card.badges.includes(exp)) : true;
         const hasSkills = skills.length > 0 ? skills.some(skill => card.badges.includes(skill)) : true;
         const hasPricing = pricing ? parseFloat(card.pricing.toString()) <= pricing : true;
 
-        return hasExperience && hasSkills && hasPricing;
+        return isActiveTabMatch && hasExperience && hasSkills && hasPricing;
     });
 
     return (
@@ -61,7 +69,7 @@ const MockInterview: React.FC<MockInterviewProps> = ({ experience, skills, prici
                                 </div>
                                 <div className="flex flex-col xl:flex-row gap-2">
                                     <Link
-                                        href={`/services/mock-${card.id}?tab=${activeTab}`}
+                                        href={`/services/${card.id}?tab=${activeTab}`}
                                         className="py-2 px-4 bg-customBlue text-background rounded-full text-sm font-bold text-center">
                                         Chi tiết
                                     </Link>
@@ -79,4 +87,4 @@ const MockInterview: React.FC<MockInterviewProps> = ({ experience, skills, prici
     );
 }
 
-export default MockInterview;
+export default ServiceField;

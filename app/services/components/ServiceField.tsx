@@ -69,11 +69,11 @@ const ServiceField: React.FC<ServiceFieldProps> = ({ experience, skills, pricing
                                 </div>
                                 <div className="flex flex-col xl:flex-row gap-2">
                                     <Link
-                                        href={`/services/${card.id}?tab=${activeTab}`}
+                                        href={`/services/${card.id}`}
                                         className="py-2 px-4 bg-customBlue text-background rounded-full text-sm font-bold text-center">
                                         Chi tiết
                                     </Link>
-                                    <Link href={`/services/${card.id}/book?tab=${activeTab}`}
+                                    <Link href={`/services/${card.id}/book`}
                                         className="py-2 px-4 bg-customBlue text-background rounded-full text-sm font-bold text-center">
                                         Đặt lịch ngay
                                     </Link>

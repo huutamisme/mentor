@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { MentorData } from "../Data/Mentor";
 import { FaUser } from "react-icons/fa";
 import Link from "next/link";
-import { useParams, useSearchParams } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import Image from "next/image";
 
 // Định nghĩa kiểu cho đánh giá
@@ -33,9 +33,9 @@ interface Mentor {
 // Component DetailMentorPage
 const MentorDetailPage: React.FC = () => {
     const params = useParams(); // Sử dụng useParams để lấy params
-    const searchParams = useSearchParams(); // Sử dụng search params để lấy được biến trong query
+
     const id = parseInt(params.mentorSlug as string, 10);
-    const activeTab = parseInt(searchParams.get('tab') || '0', 10);
+
 
     const [filteredReview, setFilteredReview] = useState<Review[]>([]);
     const [isNewestActive, setIsNewestActive] = useState(true);
@@ -97,7 +97,7 @@ const MentorDetailPage: React.FC = () => {
                 <p className="text-3xl text-customBlue italic break-words text-center mb-2">{mentor.career}</p>
                 <div className="flex flex-col bg-secondary rounded-3xl p-3 space-y-2 items-center">
                     <p className="text-white font-semibold">{mentor.pricing.toLocaleString('vi-vn')}/giờ</p>
-                    <Link href={`/services/${id}/book?tab=${activeTab}`} className="rounded-full bg-white text-customBlue font-semibold px-3">Book Now</Link>
+                    <Link href={`/services/${id}/book`} className="rounded-full bg-white text-customBlue font-semibold px-3">Book Now</Link>
                 </div>
             </div>
             <div className="w-full lg:w-5/6 bg-background py-5 px-5 lg:px-20 text-customBlue">

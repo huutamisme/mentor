@@ -72,10 +72,8 @@ const TabComponent: React.FC = () => {
                 lineRef.current.style.left = `${activeTabRef.current.offsetLeft}px`;
             }
         };
-
         updateLinePosition();
         window.addEventListener('resize', updateLinePosition);
-
         return () => window.removeEventListener('resize', updateLinePosition);
     }, [activeTab]);
 
@@ -83,8 +81,12 @@ const TabComponent: React.FC = () => {
         const tabId = searchParams.get('tab');
         if (tabId) {
             setActiveTab(parseInt(tabId));
+        } else {
+            // Nếu không có tab trong URL, đặt activeTab là 1 và cập nhật URL
+            setActiveTab(1);
+            router.push('?tab=1');
         }
-    }, [searchParams]);
+    }, [searchParams, router]);
 
     const handleExpCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { value, checked } = event.target;

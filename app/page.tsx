@@ -36,7 +36,6 @@ const Home: React.FC = () => {
             ))}
           </div>
         </div>
-        {/* <ChatBubble /> */}
       </div>
 
       {/* Toast */}

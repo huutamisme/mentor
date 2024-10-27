@@ -26,24 +26,24 @@ const mentors: Mentor[] = [
         name: "Anna Huỳnh",
         career: "HR executive",
         quote: "Tôi là Anna Huỳnh, đảm nhận vị trí HR Executive tại Công ty TNHH Daiko với 5 năm kinh nghiệm. Tôi đã đồng hành cùng nhiều ứng viên, đặc biệt là các bạn trẻ có đam mê với lĩnh vực Digital Marketing và Content Creation...",
-        url: "/services/mock/1",
-        booking: "/services/book/mock/1"
+        url: "/services/1",
+        booking: "/services/1/book"
     },
     {
         img: "/CareerAdvise/MinhMan.png",
         name: "Minh Mẫn",
         career: "Senior Marketing Manager",
         quote: "Tôi là Minh Mẫn, là một Senior Marketing Manager với hơn 7 năm kinh nghiệm làm việc tại các công ty đa quốc gia và doanh nghiệp khởi nghiệp. Nổi bật với sự sáng tạo trong tư duy chiến lược, khả năng lãnh đạo và chuyên môn sâu rộng về Digital Marketing...",
-        url: "/services/career/1",
-        booking: "/services/book/career/1"
+        url: "/services/7",
+        booking: "/services/7/book"
     },
     {
         img: "/ProjectAdvise/DavidNguyen.png",
         name: "David Nguyễn",
         career: "Brand Manager",
         quote: "Với hơn 10 năm kinh nghiệm dày dạn trong lĩnh vực quản lý thương hiệu và đồng hành cùng nhiều startup thành công. Tôi đã có cơ hội làm việc với các thương hiệu lớn nhỏ, từ giai đoạn xây dựng thương hiệu ban đầu cho đến khi trở thành những cái tên được nhiều người biết đến...",
-        url: "/services/project/1",
-        booking: "/services/book/project/1"
+        url: "/services/13",
+        booking: "/services/13/book"
     }
 ]
 
@@ -76,10 +76,10 @@ const HighlightMentor: React.FC<BannerProps> = ({ margin }) => {
                                     {mentor.quote}
                                 </p>
                                 <div className="flex md:flex-row flex-col gap-4">
-                                    <Link href={mentor.url} className="px-8 py-2 bg-customBlue text-background rounded-full text-lg md:text-2xl font-bold">
+                                    <Link href={mentor.url} className="px-8 py-2 bg-customBlue text-background rounded-full text-md lg:text-2xl font-bold text-center">
                                         Xem chi tiết
                                     </Link>
-                                    <Link href={mentor.booking} className="px-8 py-2 bg-customBlue text-background rounded-full text-lg md:text-2xl font-bold">
+                                    <Link href={mentor.booking} className="px-8 py-2 bg-customBlue text-background rounded-full text-md lg:text-2xl font-bold text-center">
                                         Đặt lịch ngay
                                     </Link>
                                 </div>

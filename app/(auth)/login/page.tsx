@@ -23,13 +23,11 @@ const Login: React.FC = () => {
                 initial={isSignUp ? { x: 0, opacity: 1 } : { x: 300, opacity: 0 }}
                 animate={isSignUp ? { x: 300, opacity: 0 } : { x: 0, opacity: 1 }}
                 transition={{ duration: 1 }}
-                className="bg-black w-full"
             >
                 <Image
                     src="/capy.jpg"
                     alt="Login"
-                    width={500}
-                    height={500}
+                    fill
                 />
             </motion.div>
             <motion.div

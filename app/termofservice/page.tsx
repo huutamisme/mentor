@@ -1,6 +1,6 @@
 const TermOfService: React.FC = () => {
     return (
-        <div className="flex  min-w-screen bg-white text-customBlue" >
+        <div className="flex min-w-screen bg-white text-customBlue" >
             <div className="overflow-y-auto overflow-x-hidden w-full p-9">
                 <div className="flex-col">
                     <h1 className='text-7xl font-bold text-customBlue'>Term Of Services</h1>

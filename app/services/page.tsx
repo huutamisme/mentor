@@ -85,7 +85,7 @@ const TabComponent: React.FC = () => {
         } else {
             // Nếu không có tab trong URL, đặt activeTab là 1 và cập nhật URL
             setActiveTab(1);
-            router.push('?tab=1');
+            router.replace('?tab=1');
         }
     }, [searchParams, router]);
 

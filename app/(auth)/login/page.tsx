@@ -18,12 +18,12 @@ const Login: React.FC = () => {
     };
 
     return (
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-2 min-h-screen overflow-hidden">
             <motion.div
                 initial={isSignUp ? { x: 0, opacity: 1 } : { x: 300, opacity: 0 }}
                 animate={isSignUp ? { x: 300, opacity: 0 } : { x: 0, opacity: 1 }}
                 transition={{ duration: 1 }}
-                className="w-full"
+                className="bg-black w-full"
             >
                 <Image
                     src="/capy.jpg"
@@ -52,6 +52,13 @@ const Login: React.FC = () => {
                     <button className="flex items-center justify-start w-full p-3 bg-blue-600 text-white mb-4 hover:bg-blue-700 transition">
                         <FaFacebook className="mr-16 text-2xl" /> Log in with Facebook
                     </button>
+                    {/* Divider */}
+                    <div className="relative flex py-3 items-center mb-4">
+                        <div className="flex-grow border-t border-gray-300"></div>
+                        <span className="flex-shrink mx-4 text-gray-400">or</span>
+                        <div className="flex-grow border-t border-gray-300"></div>
+                    </div>
+
                     <button className="w-full py-3 bg-backround border border-black text-black hover:bg-gray-100 transition">
                         Log in with Email
                     </button>

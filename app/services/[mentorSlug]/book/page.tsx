@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { format, parse, addHours } from "date-fns";
 import { Voucher } from "@/app/services/Data/Voucher";
 import { toast, ToastContainer } from 'react-toastify';
+import NavLayout from "@/app/NavLayout";
 
 // Định nghĩa kiểu cho đánh giá
 interface Review {
@@ -71,6 +72,9 @@ const BookMentorPage: React.FC = () => {
     const dataSource: Mentor[] = MentorData as Mentor[];
 
     const mentor = dataSource.find((mentor) => mentor.id === id); // Parsing ID
+    if (!mentor) {
+        return <div className="flex text-5xl text-center text-customBlue min-h-screen items-center justify-center">Không tìm thấy mentor với id: {id}</div>;
+    }
 
     const handleDurationChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setDuration(parseInt(e.target.value));
@@ -125,141 +129,143 @@ const BookMentorPage: React.FC = () => {
     };
 
     return (
-        <div className="block md:flex bg-background min-h-screen p-10 md:space-x-10">
-            <ToastContainer
-                position="top-right"
-                autoClose={2000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
-            <div className="w-full md:w-1/2 p-5 bg-gradient-custom shadow-lg rounded-lg mb-3 md:mb-0">
-                <h2 className="text-3xl font-bold mb-4 text-white">Chọn Thông Tin Đặt Lịch</h2>
+        <NavLayout>
+            <div className="block md:flex bg-background min-h-screen p-10 md:space-x-10">
+                <ToastContainer
+                    position="top-right"
+                    autoClose={2000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                />
+                <div className="w-full md:w-1/2 p-5 bg-gradient-custom shadow-lg rounded-lg mb-3 md:mb-0">
+                    <h2 className="text-3xl font-bold mb-4 text-white">Chọn Thông Tin Đặt Lịch</h2>
 
-                <div className="mb-6">
-                    <label className="text-xl text-white font-semibold">Chọn Thời Lượng (giờ):</label>
-                    <select
-                        className="block w-full p-2 mt-2 border border-gray-300 rounded text-black"
-                        value={duration}
-                        onChange={handleDurationChange}
-                    >
-                        <option value={1}>1 giờ</option>
-                        <option value={2}>2 giờ</option>
-                        <option value={3}>3 giờ</option>
-                    </select>
-                </div>
-
-                <div className="mb-6 space-x-4">
-                    <label className="text-xl font-semibold text-white">Chọn Ngày:</label>
-                    <div className="flex justify-center">
-                        <DatePicker
-                            selected={selectedDate}
-                            onChange={(date) => setSelectedDate(date)}
-                            dateFormat="dd/MM/yyyy"
-                            locale={vi}
-                            minDate={new Date()}
-                            inline
-                        />
+                    <div className="mb-6">
+                        <label className="text-xl text-white font-semibold">Chọn Thời Lượng (giờ):</label>
+                        <select
+                            className="block w-full p-2 mt-2 border border-gray-300 rounded text-black"
+                            value={duration}
+                            onChange={handleDurationChange}
+                        >
+                            <option value={1}>1 giờ</option>
+                            <option value={2}>2 giờ</option>
+                            <option value={3}>3 giờ</option>
+                        </select>
                     </div>
-                </div>
 
-                <div className="mb-6">
-                    <label className="text-xl font-semibold text-white">Chọn Khung Giờ:</label>
-                    <div className="pt-4 pb-2 mt-4 flex space-x-4 flex-wrap items-start">
-                        {mentor.period.map((time, index) => (
-                            <button
-                                key={index}
-                                onClick={() => handleTimeSlotChange(time)}
-                                className={`${timeSlot === time
-                                    ? "border-4 border-blue-500"
-                                    : "border-4 border-transparent"
-                                    } bg-white text-customBlue font-semibold rounded-full py-1 px-5 w-fit mb-2 text-2xl`}
-                            >
-                                {time}
-                            </button>
-                        ))}
-                    </div>
-                </div>
-            </div>
-
-            <div className="w-full md:w-1/2 bg-white shadow-lg rounded-lg">
-                <div className="flex items-center space-x-4 border-b-2 p-5">
-                    <div className="avatar">
-                        <div className="w-24 rounded-full">
-                            <img src={mentor.image} alt={mentor.name} />
+                    <div className="mb-6 space-x-4">
+                        <label className="text-xl font-semibold text-white">Chọn Ngày:</label>
+                        <div className="flex justify-center">
+                            <DatePicker
+                                selected={selectedDate}
+                                onChange={(date) => setSelectedDate(date)}
+                                dateFormat="dd/MM/yyyy"
+                                locale={vi}
+                                minDate={new Date()}
+                                inline
+                            />
                         </div>
                     </div>
-                    <div>
-                        <p className="text-4xl font-bold text-customBlue">Tư vấn với {mentor.name}</p>
-                        <p className="text-customBlue">Giữ lịch hẹn trong {Math.floor(timeLeft / 60)}:{(timeLeft % 60).toString().padStart(2, '0')}</p>
+
+                    <div className="mb-6">
+                        <label className="text-xl font-semibold text-white">Chọn Khung Giờ:</label>
+                        <div className="pt-4 pb-2 mt-4 flex space-x-4 flex-wrap items-start">
+                            {mentor.period.map((time, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => handleTimeSlotChange(time)}
+                                    className={`${timeSlot === time
+                                        ? "border-4 border-blue-500"
+                                        : "border-4 border-transparent"
+                                        } bg-white text-customBlue font-semibold rounded-full py-1 px-5 w-fit mb-2 text-2xl`}
+                                >
+                                    {time}
+                                </button>
+                            ))}
+                        </div>
                     </div>
                 </div>
-                <div className="border-b-2 p-5">
-                    <div className="mb-4 flex justify-between">
-                        <p className="text-2xl font-bold text-customBlue">{duration} giờ</p>
-                        <p className="text-2xl font-bold text-customBlue">{mentorPrice.toLocaleString('vi-vn')} VND</p>
+
+                <div className="w-full md:w-1/2 bg-white shadow-lg rounded-lg">
+                    <div className="flex items-center space-x-4 border-b-2 p-5">
+                        <div className="avatar">
+                            <div className="w-24 rounded-full">
+                                <img src={mentor.image} alt={mentor.name} />
+                            </div>
+                        </div>
+                        <div>
+                            <p className="text-4xl font-bold text-customBlue">Tư vấn với {mentor.name}</p>
+                            <p className="text-customBlue">Giữ lịch hẹn trong {Math.floor(timeLeft / 60)}:{(timeLeft % 60).toString().padStart(2, '0')}</p>
+                        </div>
+                    </div>
+                    <div className="border-b-2 p-5">
+                        <div className="mb-4 flex justify-between">
+                            <p className="text-2xl font-bold text-customBlue">{duration} giờ</p>
+                            <p className="text-2xl font-bold text-customBlue">{mentorPrice.toLocaleString('vi-vn')} VND</p>
+                        </div>
+
+                        <div className="mb-4">
+                            <p className="text-2xl text-customBlue">{formatSelectedDate(selectedDate)}</p>
+                        </div>
+
+                        <div className="mb-4">
+                            <p className="text-2xl text-customBlue">{timeSlot ? `${timeSlot} - ${calculateEndTime()}` : "Chưa chọn khung giờ!"}</p>
+                        </div>
+
+                        {/* Discount Code Input */}
+                        <div className="flex items-center space-x-2 mb-6 border border-2 border-black rounded-full">
+                            <input
+                                type="text"
+                                value={discountCode}
+                                onChange={handleDiscountChange}
+                                placeholder="Nhập mã giảm giá"
+                                className="w-2/3 p-2 rounded-full text-customBlue text-center focus:outline-none"
+                            />
+                            <button
+                                onClick={applyDiscountCode}
+                                className="w-1/3 bg-customBlue text-white p-2 rounded font-semibold rounded-r-full"
+                            >
+                                Áp dụng
+                            </button>
+                        </div>
                     </div>
 
-                    <div className="mb-4">
-                        <p className="text-2xl text-customBlue">{formatSelectedDate(selectedDate)}</p>
-                    </div>
+                    <div className="text-customBlue px-10 space-y-4 py-4">
+                        <div className="flex justify-between">
+                            <h3 className="text-2xl">Phí tư vấn: </h3>
+                            <h3 className="text-2xl">{mentorPrice.toLocaleString('vi-VN')} VND</h3>
+                        </div>
+                        <div className="flex justify-between">
+                            <h3 className="text-2xl">VAT (10%): </h3>
+                            <h3 className="text-2xl">{vatPrice.toLocaleString('vi-VN')} VND</h3>
+                        </div>
+                        {discountValue !== 0 &&
+                            <div className="flex justify-between">
+                                <h3 className="text-2xl">Mã giảm giá ({discountValue}%):</h3>
+                                <h3 className="text-2xl">{discountPrice.toLocaleString('vi-VN')} VND</h3>
+                            </div>
+                        }
+                        <div className="flex justify-between">
+                            <h3 className="text-2xl font-bold">Tổng cộng: </h3>
+                            <h3 className="text-2xl font-bold">{totalPrice.toLocaleString('vi-VN')} VND</h3>
+                        </div>
 
-                    <div className="mb-4">
-                        <p className="text-2xl text-customBlue">{timeSlot ? `${timeSlot} - ${calculateEndTime()}` : "Chưa chọn khung giờ!"}</p>
-                    </div>
-
-                    {/* Discount Code Input */}
-                    <div className="flex items-center space-x-2 mb-6 border border-2 border-black rounded-full">
-                        <input
-                            type="text"
-                            value={discountCode}
-                            onChange={handleDiscountChange}
-                            placeholder="Nhập mã giảm giá"
-                            className="w-2/3 p-2 rounded-full text-customBlue text-center focus:outline-none"
-                        />
                         <button
-                            onClick={applyDiscountCode}
-                            className="w-1/3 bg-customBlue text-white p-2 rounded font-semibold rounded-r-full"
+                            className={`mt-6 w-full p-3 text-white font-bold text-lg rounded-lg ${!selectedDate || !timeSlot ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500"
+                                }`}
+                            disabled={!selectedDate || !timeSlot}
+                            onClick={handleConfirmBooking}
                         >
-                            Áp dụng
+                            Xác nhận và Đặt lịch
                         </button>
                     </div>
                 </div>
-
-                <div className="text-customBlue px-10 space-y-4 py-4">
-                    <div className="flex justify-between">
-                        <h3 className="text-2xl">Phí tư vấn: </h3>
-                        <h3 className="text-2xl">{mentorPrice.toLocaleString('vi-VN')} VND</h3>
-                    </div>
-                    <div className="flex justify-between">
-                        <h3 className="text-2xl">VAT (10%): </h3>
-                        <h3 className="text-2xl">{vatPrice.toLocaleString('vi-VN')} VND</h3>
-                    </div>
-                    {discountValue !== 0 &&
-                        <div className="flex justify-between">
-                            <h3 className="text-2xl">Mã giảm giá ({discountValue}%):</h3>
-                            <h3 className="text-2xl">{discountPrice.toLocaleString('vi-VN')} VND</h3>
-                        </div>
-                    }
-                    <div className="flex justify-between">
-                        <h3 className="text-2xl font-bold">Tổng cộng: </h3>
-                        <h3 className="text-2xl font-bold">{totalPrice.toLocaleString('vi-VN')} VND</h3>
-                    </div>
-
-                    <button
-                        className={`mt-6 w-full p-3 text-white font-bold text-lg rounded-lg ${!selectedDate || !timeSlot ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500"
-                            }`}
-                        disabled={!selectedDate || !timeSlot}
-                        onClick={handleConfirmBooking}
-                    >
-                        Xác nhận và Đặt lịch
-                    </button>
-                </div>
             </div>
-        </div>
+        </NavLayout>
     );
 }
 

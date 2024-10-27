@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import ServiceField from "./components/ServiceField";
+import NavLayout from '../NavLayout';
 interface Tab {
     id: number;
     title: string;
@@ -107,7 +108,7 @@ const TabComponent: React.FC = () => {
     };
 
     return (
-        <div>
+        <NavLayout>
             <div className="flex flex-col items-center pt-10 bg-background border-t-2">
                 <div className="relative">
                     <div
@@ -194,7 +195,7 @@ const TabComponent: React.FC = () => {
                     {renderTabContent()}
                 </div>
             </div>
-        </div>
+        </NavLayout>
     );
 };
 

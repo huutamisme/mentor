@@ -3,6 +3,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import ChatBubble from './components/ChatBubble';
 import Banner from './components/Banner';
 import HighlightMentor from './components/HighlightMentor';
+import NavLayout from './NavLayout';
 
 const steps: Array<string> = [
   "Chọn dịch vụ <br /> mình cần",
@@ -12,7 +13,7 @@ const steps: Array<string> = [
 
 const Home: React.FC = () => {
   return (
-    <>
+    <NavLayout>
       <div className="relative">
         <Banner margin={10} />
         <video className="w-full h-min-screen" loop autoPlay muted>
@@ -49,7 +50,7 @@ const Home: React.FC = () => {
         draggable
         pauseOnHover
       />
-    </>
+    </NavLayout>
   );
 }
 

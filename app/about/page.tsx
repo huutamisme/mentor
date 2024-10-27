@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { NextArrow, PrevArrow } from "../components/SlickBtn";
 import { motion } from 'framer-motion';
+import NavLayout from "../NavLayout";
 
 // Interfaces
 interface Resource {
@@ -101,7 +102,7 @@ const AboutPage: React.FC = () => {
     const missionVisible = useIntersectionObserver(missionRef);
 
     return (
-        <>
+        <NavLayout>
             {/* Who are we section */}
             <motion.div
                 ref={whoAreWeRef}
@@ -264,7 +265,7 @@ const AboutPage: React.FC = () => {
                 Kết nối những tài năng trẻ với các chuyên gia có uy tín, cung cấp những công cụ và dịch vụ hữu ích,
                 giúp họ đạt được mục tiêu nghề nghiệp và tạo ra giá trị cho xã hội.
             </motion.p>
-        </>
+        </NavLayout>
     );
 };
 

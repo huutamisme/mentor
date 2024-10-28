@@ -158,22 +158,6 @@ const TabComponent: React.FC = () => {
                                 </div>
                             </div>
                         </div>
-                        {/* <h2 className="text-xl font-bold mb-4">Kinh nghiệm</h2>
-                        <div className="grid grid-cols-2 gap-2">
-                            {experienceOptions.map(option => (
-                                <div key={option.id} className="flex items-center mb-2">
-                                    <input
-                                        type="checkbox"
-                                        id={`experience-${option.id}`}
-                                        value={option.value}
-                                        checked={selectedValues.includes(option.value)}
-                                        onChange={handleExpCheckboxChange}
-                                        className="mr-2"
-                                    />
-                                    <label htmlFor={`experience-${option.id}`}>{option.label}</label>
-                                </div>
-                            ))}
-                        </div> */}
                     </div>
 
                     <div className="rounded-3xl p-2 bg-white shadow-lg mt-4">
@@ -198,22 +182,6 @@ const TabComponent: React.FC = () => {
                                 </div>
                             </div>
                         </div>
-                        {/* <h2 className="text-xl font-bold mb-4">Kỹ năng</h2>
-                        <div className="grid grid-cols-2 gap-2">
-                            {skillsOptions.map(option => (
-                                <div key={option.id} className="flex items-center mb-2 text-xs lg:text-lg">
-                                    <input
-                                        type="checkbox"
-                                        id={`skills-${option.id}`}
-                                        value={option.value}
-                                        checked={selectedSkills.includes(option.value)}
-                                        onChange={handleCheckboxChange}
-                                        className="mr-2"
-                                    />
-                                    <label htmlFor={`skills-${option.id}`}>{option.label}</label>
-                                </div>
-                            ))}
-                        </div> */}
                     </div>
 
                     <div className="rounded-3xl p-2 bg-white shadow-lg mt-4">
@@ -235,19 +203,6 @@ const TabComponent: React.FC = () => {
                                 </div>
                             </div>
                         </div>
-                        {/* <h2 className="text-xl font-bold mb-4">Mức phí</h2>
-                        <div className="flex items-center">
-                            <input
-                                type="range"
-                                min={200000}
-                                max={1000000}
-                                step={50000}
-                                value={sliderValue}
-                                onChange={handleSliderChange}
-                                className="range"
-                            />
-                            <span className="ml-4">{sliderValue.toLocaleString('vi-vn')}</span>
-                        </div> */}
                     </div>
                 </div>
 

@@ -45,6 +45,7 @@ const MentorDetailPage: React.FC = () => {
         window.scrollTo(0, 0);
     }, []);
 
+
     // Hàm lọc các review mới nhất (trong vòng 7 ngày)
     const newestReviews = (mentor: Mentor) => {
         const result = mentor.reviews.filter(review => review.date.includes('ngày'));
@@ -57,6 +58,12 @@ const MentorDetailPage: React.FC = () => {
 
 
     const mentor = dataSource.find((mentor) => mentor.id === id);
+
+    useEffect(() => {
+        if (mentor) {
+            newestReviews(mentor);
+        }
+    }, [mentor]);
 
 
     if (!mentor) {
@@ -79,11 +86,6 @@ const MentorDetailPage: React.FC = () => {
     // Sắp xếp mảng theo số lượng đánh giá giảm dần
     progressData.sort((a, b) => b.stars - a.stars);
 
-    useEffect(() => {
-        if (mentor) {
-            newestReviews(mentor);
-        }
-    }, [mentor]);
 
 
     return (

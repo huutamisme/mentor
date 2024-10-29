@@ -92,7 +92,7 @@ const ChatBubble: React.FC = () => {
                             <h2 className="text-lg font-light text-black">My Site 1</h2>
                             <div className="flex items-center">
                                 <span className="w-2.5 h-2.5 bg-green-500 rounded-full mr-2"></span>
-                                <h4 className="text-md font-light text-black">We'll reply as soon as possible</h4>
+                                <h4 className="text-md font-light text-black">We&apos;ll reply as soon as possible</h4>
                             </div>
                         </div>
 

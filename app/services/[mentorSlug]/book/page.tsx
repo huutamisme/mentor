@@ -4,7 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { vi } from "date-fns/locale";
 import { MentorData } from "@/app/services/Data/Mentor";
-import { useParams, useSearchParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { format, parse, addHours } from "date-fns";
 import { Voucher } from "@/app/services/Data/Voucher";
@@ -42,12 +42,9 @@ const BookMentorPage: React.FC = () => {
     const [discountValue, setDiscountValue] = useState<number>(0);
     const router = useRouter();
     const params = useParams(); // Sử dụng useParams để lấy params
-    const searchParams = useSearchParams(); // Sử dụng search params để lấy được biến trong query
     const id = parseInt(params.mentorSlug as string, 10);
-    const activeTab = parseInt(searchParams.get('tab') || '0', 10);
 
     const [timeLeft, setTimeLeft] = useState<number>(10);
-    const [isTimerActive, setIsTimerActive] = useState<boolean>(true);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -56,7 +53,7 @@ const BookMentorPage: React.FC = () => {
     // Countdown timer
     useEffect(() => {
         let timer: NodeJS.Timeout;
-        if (isTimerActive && timeLeft > 0) {
+        if (timeLeft > 0) {
             timer = setInterval(() => {
                 setTimeLeft(prev => prev - 1);
             }, 1000);
@@ -67,7 +64,7 @@ const BookMentorPage: React.FC = () => {
             }, 2500);
         }
         return () => clearInterval(timer);
-    }, [isTimerActive, timeLeft, router]);
+    }, [timeLeft, router]);
 
     const dataSource: Mentor[] = MentorData as Mentor[];
 

@@ -45,7 +45,7 @@ const BookMentorPage: React.FC = () => {
     const params = useParams(); // Sử dụng useParams để lấy params
     const id = parseInt(params.mentorSlug as string, 10);
 
-    const [timeLeft, setTimeLeft] = useState<number>(10);
+    const [timeLeft, setTimeLeft] = useState<number>(20);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -197,7 +197,13 @@ const BookMentorPage: React.FC = () => {
                         </div>
                         <div>
                             <p className="text-4xl font-bold text-customBlue">Tư vấn với {mentor.name}</p>
-                            <p className="text-customBlue">Giữ lịch hẹn trong {Math.floor(timeLeft / 60)}:{(timeLeft % 60).toString().padStart(2, '0')}</p>
+                            <div className="text-customBlue text-xl">
+                                Giữ lịch hẹn trong{" "}
+                                <span className="countdown">
+                                    <span style={{ "--value": Math.floor(timeLeft / 60) }}></span>:
+                                    <span style={{ "--value": timeLeft % 60 }}></span>
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <div className="border-b-2 p-5">

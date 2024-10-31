@@ -37,6 +37,9 @@ const resources: Resource[] = [
 
 const values: string[] = ["Cá nhân hóa", "Chuyên nghiệp", "Đáng tin cậy"];
 
+
+
+
 // Component
 const AboutPage: React.FC = () => {
     const settings = {

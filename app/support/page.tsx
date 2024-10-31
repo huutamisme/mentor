@@ -6,10 +6,11 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import NavLayout from '../NavLayout';
+import Image from 'next/image';
 
 const ContactPage: React.FC = () => {
     const [zoomLevel, setZoomLevel] = useState(1);
-    const [mapImage, setMapImage] = useState('map-small.png');
+    const [mapImage, setMapImage] = useState('/map-small.png');
 
     // Validation schema using Yup
     const validationSchema = Yup.object({
@@ -44,16 +45,16 @@ const ContactPage: React.FC = () => {
         // Update map image based on zoom level
         switch (zoomLevel) {
             case 1:
-                setMapImage('map-small.png');
+                setMapImage('/map-small.png');
                 break;
             case 2:
-                setMapImage('map-medium.png');
+                setMapImage('/map-medium.png');
                 break;
             case 3:
-                setMapImage('map-large.png');
+                setMapImage('/map-large.png');
                 break;
             default:
-                setMapImage('map-small.png');
+                setMapImage('/map-small.png');
         }
     }, [zoomLevel]);
 
@@ -101,10 +102,12 @@ const ContactPage: React.FC = () => {
                             onWheel={handleWheel}
                             className="relative w-full h-96 overflow-hidden"
                         >
-                            <img
+                            <Image
                                 src={mapImage}
                                 alt="Map"
                                 className={`w-full h-full transition-transform duration-500 ease-in-out transform scale-${zoomLevel}`}
+                                width={800}
+                                height={800}
                             />
                         </div>
                     </div>

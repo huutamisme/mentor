@@ -31,18 +31,3 @@ body {
 .border-gradient-custom {
   border-color: linear-gradient(90deg, #1B397A, #3867F0);
 }
-
-.glow-text {
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
-    0 0 20px rgba(255, 255, 255, 0.8),
-    0 0 30px rgba(255, 255, 255, 0.8),
-    0 0 40px #1c3879,
-    0 0 70px #1c3879,
-    0 0 80px #1c3879,
-    0 0 100px #1c3879,
-    0 0 150px #1c3879;
-}
-
-.text-shadow-custom {
-  text-shadow: 1px 1px 8px rgba(255, 255, 255, 1);
-}

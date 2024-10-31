@@ -87,7 +87,6 @@ const HighlightMentor: React.FC<BannerProps> = ({ margin }) => {
 
                             {/* Right Column */}
                             <div className="flex flex-col relative">
-
                                 <div className="bg-customBlue h-4/5" />
                                 <div className="bg-background h-1/5" />
                                 <Image
@@ -98,15 +97,12 @@ const HighlightMentor: React.FC<BannerProps> = ({ margin }) => {
                                     height={700}
                                 />
                             </div>
-
-
                         </div>
                     </div>
                 ))}
             </Slider>
         </div>
     );
-
 };
 
 export default HighlightMentor;

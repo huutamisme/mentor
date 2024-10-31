@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { format, parse, addHours } from "date-fns";
 import { Voucher } from "@/app/services/Data/Voucher";
 import { toast, ToastContainer } from 'react-toastify';
+import Image from "next/image";
 import NavLayout from "@/app/NavLayout";
 
 // Định nghĩa kiểu cho đánh giá
@@ -191,7 +192,7 @@ const BookMentorPage: React.FC = () => {
                     <div className="flex items-center space-x-4 border-b-2 p-5">
                         <div className="avatar">
                             <div className="w-24 rounded-full">
-                                <img src={mentor.image} alt={mentor.name} />
+                                <Image src={mentor.image} alt={mentor.name} width={700} height={700} />
                             </div>
                         </div>
                         <div>

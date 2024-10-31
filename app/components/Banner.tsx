@@ -18,7 +18,7 @@ interface Banner {
 
 const Banner: React.FC<BannerProps> = ({ margin }) => {
     const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         draggable: true,
         speed: 500,
@@ -49,11 +49,11 @@ const Banner: React.FC<BannerProps> = ({ margin }) => {
     ];
 
     return (
-        <div className="mx-auto ">
+        <div className="mx-auto">
             <Slider {...settings}>
                 {banners.map((banner, index) => (
                     <div key={index} className="flex flex-col justify-center p-4 text-center bg-customBlue text-white h-[470px] md:h-[250px]">
-                        <h2 className="text-6xl font-bold mb-4 glow-text">{banner.title}</h2>
+                        <h2 className="text-6xl font-bold mb-4">{banner.title}</h2>
                         <p className="text-3xl mb-2">
                             <span className="mr-2">✦</span>
                             {banner.line1}

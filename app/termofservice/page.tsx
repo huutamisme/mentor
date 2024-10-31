@@ -1,4 +1,4 @@
-const TermOfService: React.FC = () => {
+const TermOfService: React.FC = async () => {
     return (
         <div className="flex min-w-screen bg-white text-customBlue" >
             <div className="overflow-y-auto overflow-x-hidden w-full p-9">

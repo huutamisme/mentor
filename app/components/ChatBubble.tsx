@@ -80,7 +80,9 @@ const ChatBubble: React.FC = () => {
             <div className="fixed bottom-16 right-6 text-black">
                 <button
                     className="bg-white rounded-full p-4 shadow-lg hover:bg-blue-500 transition duration-300"
-                    onClick={toggleChat}>
+                    onClick={toggleChat}
+                    aria-label="Chat Bubble"
+                >
                     <FaComments size={30} />
                 </button>
             </div>

@@ -1,9 +1,8 @@
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import ChatBubble from './components/ChatBubble';
 import Banner from './components/Banner';
 import HighlightMentor from './components/HighlightMentor';
 import NavLayout from './NavLayout';
+
 
 const steps: Array<string> = [
   "Chọn dịch vụ <br /> mình cần",
@@ -18,12 +17,13 @@ const Home: React.FC = () => {
         <Banner margin={10} />
         <video className="w-full h-min-screen" loop autoPlay muted>
           <source src="/video.mp4" type="video/mp4" />
+          <track kind="captions" src="captions.vtt" label="English" />
           Your browser does not support the video tag.
         </video>
         <HighlightMentor margin={10} />
         <ChatBubble />
         <div className="bg-customBlue py-20">
-          <p className="text-5xl md:text-7xl text-center text-white text-shadow-custom mb-10">BƯỚC THỰC HIỆN</p>
+          <p className="text-5xl md:text-7xl text-center text-white font-semibold mb-10">BƯỚC THỰC HIỆN</p>
           <div className="grid grid-cols-1 space-y-4 md:grid-cols-3 place-items-center">
             {steps.map((step, index) => (
               <div key={index} className="flex flex-col items-center justify-start bg-background rounded-3xl text-customBlue min-h-[300px] px-5">
@@ -37,18 +37,6 @@ const Home: React.FC = () => {
           </div>
         </div>
       </div>
-
-      {/* Toast */}
-      <ToastContainer
-        position="bottom-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
     </NavLayout>
   );
 }

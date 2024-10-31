@@ -18,10 +18,7 @@ const navItem: NavItem[] = [
 ]
 
 const mobileNavItem: NavItem[] = [
-    { name: "Trang chủ", href: "/" },
-    { name: "Về chúng tôi", href: "/about" },
-    { name: "Dịch vụ", href: "/services" },
-    { name: "Hỗ trợ", href: "/support" },
+    ...navItem,
     { name: "Đăng nhập", href: "/login" },
     { name: "Đăng ký", href: "/signup" },
 ]
@@ -42,9 +39,7 @@ const Navbar: React.FC = () => {
                 {/* Desktop menu */}
                 <ul className="font-semibold hidden lg:flex xl:space-x-6 space-x-2">
                     {navItem.map((item, index) => (
-                        <li key={index}
-
-                        >
+                        <li key={index}>
                             <Link
                                 href={item.href}
                                 passHref
@@ -71,10 +66,10 @@ const Navbar: React.FC = () => {
                 {/* Login-Signup buttons */}
                 <div className="hidden lg:flex space-x-2">
                     <Link href="/login">
-                        <p className="btn text-customBlue rounded-2xl">Đăng nhập</p>
+                        <p className="btn text-customBlue bg-white rounded-2xl">Đăng nhập</p>
                     </Link>
                     <Link href="/signup">
-                        <p className="btn text-white bg-secondary rounded-2xl">Đăng ký</p>
+                        <p className="btn text-white bg-customBlue rounded-2xl">Đăng ký</p>
                     </Link>
                 </div>
 
@@ -125,6 +120,4 @@ const Navbar: React.FC = () => {
         </nav>
     );
 }
-
-
 export default Navbar;

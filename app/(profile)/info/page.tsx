@@ -2,6 +2,7 @@
 import ProfileLayout from "../ProfileLayout";
 import { useState } from "react";
 import { FaGraduationCap, FaBriefcase } from "react-icons/fa";
+import Image from "next/image";
 
 
 const Info: React.FC = () => {
@@ -34,7 +35,7 @@ const Info: React.FC = () => {
                 <div className="rounded-3xl">
                     <div className="card bg-base-100 w-full shadow-xl">
                         <figure>
-                            <img src="/capy.jpg" alt="User Avatar" />
+                            <Image src="/capy.jpg" alt="User Avatar" width={800} height={200} />
                         </figure>
                         <div className="card-body">
                             {/* Form thông tin */}

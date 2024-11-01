@@ -200,8 +200,8 @@ const BookMentorPage: React.FC = () => {
                             <div className="text-customBlue text-xl">
                                 Giữ lịch hẹn trong{" "}
                                 <span className="countdown">
-                                    <span style={{ "--value": Math.floor(timeLeft / 60) }}></span>:
-                                    <span style={{ "--value": timeLeft % 60 }}></span>
+                                    <span style={{ ["--value" as string]: Math.floor(timeLeft / 60) }}></span>:
+                                    <span style={{ ["--value" as string]: timeLeft % 60 }}></span>
                                 </span>
                             </div>
                         </div>

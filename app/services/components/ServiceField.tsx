@@ -1,7 +1,11 @@
+"use client";
+
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { MentorData } from '../Data/Mentor';
 import Image from 'next/image';
+import { useState } from 'react';
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
 
 interface ServiceFieldProps {
     experience: string[];
@@ -22,6 +26,8 @@ interface CardData {
 
 const ServiceField: React.FC<ServiceFieldProps> = ({ experience, skills, pricing, activeTab }) => {
 
+    const [isFavorited, setIsFavorited] = useState(false);
+
     const fieldMapping = {
         1: "mock",
         2: "career",
@@ -38,12 +44,16 @@ const ServiceField: React.FC<ServiceFieldProps> = ({ experience, skills, pricing
         return isActiveTabMatch && hasExperience && hasSkills && hasPricing;
     });
 
+    const toggleFavorite = () => {
+        setIsFavorited(!isFavorited);
+    }
+
     return (
         <div className="space-y-5 px-10">
             {filteredCards.length === 0 ? (
                 <h2 className="text-3xl text-center text-customBlue">Không có kết quả nào phù hợp!</h2>
             ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 relative">
                     {filteredCards.map((card) => (
                         <motion.div
                             key={card.id}
@@ -53,10 +63,14 @@ const ServiceField: React.FC<ServiceFieldProps> = ({ experience, skills, pricing
                             transition={{ duration: 0.3 }}
                             className="card bg-base-100 shadow-xl flex items-center p-2"
                         >
+                            <button onClick={toggleFavorite} className="text-red-500 focus:outline-none absolute top-2 right-2">
+                                {isFavorited ? <FaHeart size={24} /> : <FaRegHeart color='gray' size={24} />}
+                            </button>
                             <div className="avatar">
                                 <div className="w-24 rounded-full">
                                     <Image src={card.image} alt={card.name} width={170} height={170} />
                                 </div>
+
                             </div>
                             <div className="card-body flex items-center">
                                 <h2 className="card-title text-customBlue text-center">{card.name}</h2>

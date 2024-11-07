@@ -1,5 +1,5 @@
 "use client";
-import { FaUserAlt, FaCalendarDay, FaHeart, FaSignOutAlt } from "react-icons/fa";
+import { FaUserAlt, FaCalendarDay, FaSignOutAlt } from "react-icons/fa";
 import Link from "next/link";
 import { ReactNode } from "react";
 import { usePathname } from "next/navigation";
@@ -9,7 +9,6 @@ const ProfileLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
     const menuItems = [
         { href: "/info", icon: <FaUserAlt size={25} />, label: "Thông tin cá nhân" },
         { href: "/appointment", icon: <FaCalendarDay size={25} />, label: "Lịch hẹn" },
-        { href: "/favorite", icon: <FaHeart size={25} />, label: "Mentor yêu thích" },
         { href: "#", icon: <FaSignOutAlt size={25} />, label: "Đăng xuất" }
     ];
 

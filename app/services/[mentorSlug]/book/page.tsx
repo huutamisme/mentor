@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { format, parse, addHours } from "date-fns";
 import { Voucher } from "@/app/services/Data/Voucher";
 import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Image from "next/image";
 import NavLayout from "@/app/NavLayout";
 
@@ -93,7 +94,7 @@ const BookMentorPage: React.FC = () => {
             setDiscountValue(voucher.value); // Apply discount value
         } else {
             setDiscountValue(0); // No discount if invalid
-            toast.error('Mã giảm giá không hợp lệ!');
+            toast.error("Mã giảm giá không hợp lệ!");
         }
         setDiscountCode("");
     };
@@ -129,16 +130,6 @@ const BookMentorPage: React.FC = () => {
     return (
         <NavLayout>
             <div className="block md:flex bg-background min-h-screen p-10 md:space-x-10">
-                <ToastContainer
-                    position="top-right"
-                    autoClose={2000}
-                    hideProgressBar={false}
-                    newestOnTop={false}
-                    closeOnClick
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                />
                 <div className="w-full md:w-1/2 p-5 bg-gradient-custom shadow-lg rounded-lg mb-3 md:mb-0">
                     <h2 className="text-3xl font-bold mb-4 text-white">Chọn Thông Tin Đặt Lịch</h2>
 
@@ -268,6 +259,17 @@ const BookMentorPage: React.FC = () => {
                         </button>
                     </div>
                 </div>
+
+                <ToastContainer
+                    position="bottom-right"
+                    autoClose={2000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                />
             </div>
         </NavLayout>
     );

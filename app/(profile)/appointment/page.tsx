@@ -200,11 +200,10 @@ const Appointment: React.FC = () => {
                                         Tư vấn cùng {appointment.mentor.name}
                                         {
                                             getAppointmentStatus(appointment.date, appointment.timeSlot) === "Đã kết thúc" ?
-                                                <div className="badge bg-gray-400 text-white">Đã kết thúc</div>
-                                                : getAppointmentStatus(appointment.date, appointment.timeSlot) === "Đang diễn ra" ?
+                                                <div className="badge bg-gray-400 text-white">Đã kết thúc</div> :
+                                                getAppointmentStatus(appointment.date, appointment.timeSlot) === "Đang diễn ra" ?
                                                     <div className="badge bg-green-500 text-white">Đang diễn ra</div>
                                                     : <div className="badge bg-yellow-600 text-white">Sắp diễn ra</div>
-
                                         }
                                     </h2>
                                     <p>{appointment.mentor.career}</p>

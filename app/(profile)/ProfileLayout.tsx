@@ -1,3 +1,4 @@
+"use client";
 import { FaUserAlt, FaCalendarDay, FaHeart, FaSignOutAlt } from "react-icons/fa";
 import Link from "next/link";
 import { ReactNode } from "react";
@@ -13,7 +14,7 @@ const ProfileLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
     ];
 
     return (
-        <div className="flex py-5 p-10">
+        <div className="flex py-5 p-10 min-h-screen">
             {/* Menu */}
             <div className="flex flex-col w-1/5 items-start">
                 <Link href="/" className="text-5xl text-customBlue font-bold h-1/6">MENTOR</Link>

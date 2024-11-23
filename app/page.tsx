@@ -1,6 +1,6 @@
-import ChatBubble from './components/ChatBubble';
-import Banner from './components/Banner';
-import HighlightMentor from './components/HighlightMentor';
+import ChatBubble from '../components/ChatBubble';
+import Banner from '../components/Banner';
+import HighlightMentor from '../components/HighlightMentor';
 import NavLayout from './NavLayout';
 
 

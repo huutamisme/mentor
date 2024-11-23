@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { NextArrow, PrevArrow } from "../components/SlickBtn";
+import { NextArrow, PrevArrow } from "../../components/SlickBtn";
 import { motion } from 'framer-motion';
 import NavLayout from "../NavLayout";
 

@@ -3,7 +3,7 @@ const PolicyPrivacy: React.FC = () => {
         <div className="flex min-w-screen bg-white text-customBlue">
             <div className="overflow-y-auto overflow-x-hidden w-full p-9">
                 <div className="flex-col">
-                    <h1 className='text-7xl font-bold text-customBlue'>Privacy Policy</h1>
+                    <h1 className='text-7xl font-bold text-customBlue'>Chính sách bảo mật</h1>
 
                     {/* Mục 1 Mục đích */}
                     <div className="collapse collapse-arrow bg-background my-6">

@@ -3,7 +3,7 @@ const TermOfService: React.FC = async () => {
         <div className="flex min-w-screen bg-white text-customBlue" >
             <div className="overflow-y-auto overflow-x-hidden w-full p-9">
                 <div className="flex-col">
-                    <h1 className='text-7xl font-bold text-customBlue'>Term Of Services</h1>
+                    <h1 className='text-7xl font-bold text-customBlue'>Điều khoản dịch vụ</h1>
 
                     {/* Mục 1 Điều kiện Sử dụng */}
                     <div className="collapse collapse-arrow bg-background my-6">
